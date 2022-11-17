@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from "next/image"
+import {MenuIcon,SearchIcon,ShoppingCartIcon,} from "@heroicons/react/outline"
 
 const Headers = () => {
     return (
@@ -13,8 +14,9 @@ const Headers = () => {
                 className="cursor-pointer"
                 />
             </div>
-            <div>
+            <div className='bg-yellow-400'>
                 <input type="text" />
+                <SearchIcon className="h-12 p-4"/>
             </div>
         </div>
         <div></div>
