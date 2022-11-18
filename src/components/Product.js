@@ -22,14 +22,19 @@ const Product = ({id,image,title,category,price,description}) => {
             {Array(rating)
             .fill()
             .map((_,i) => (
-                <StarIcon className='h-5 '/>
+                <StarIcon  className='h-5  text-yellow-500'/>
             ))}
         </div>
         <p>{description}</p>
         <div>
             <CurrencyFormat quantity={price} currency="KSH"/>
-
         </div>
+        {hasPrime &&(
+            <div>
+                <img className='' src="https://links.papareact.com/fdw" alt=""/>
+                <p>FREE Next-day Delivery</p>
+            </div>
+        )}
     </div>
     )
 }
