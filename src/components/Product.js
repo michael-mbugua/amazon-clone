@@ -3,6 +3,7 @@ import Image from 'next/dist/client/image';
 import { StarIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import CurrencyFormat from 'react-currency-format';
+import { Button } from 'bootstrap';
 const MAX_RATING=5;
 const MIN_RATING=1;
 
@@ -13,8 +14,8 @@ const Product = ({id,image,title,category,price,description}) => {
     const [hasPrime]=useState(
         Math.random()<0.5)
     return (
-    <div>
-        <p>{category}</p>
+    <div className='relative flex flex-col m-5 bg-white z-index-30 p-10'>
+        <p className='absolute top-2 text-xs italic text-gray-400'>{category}</p>
         <Image src={image} height={200} width={200} objectFit="contain"/>
 
         <h4>{title}</h4>
@@ -25,16 +26,17 @@ const Product = ({id,image,title,category,price,description}) => {
                 <StarIcon  className='h-5  text-yellow-500'/>
             ))}
         </div>
-        <p>{description}</p>
-        <div>
+        <p className='text-xs my-2 line-clamp-2'>{description}</p>
+        <div className='mb-5'>
             <CurrencyFormat quantity={price} currency="KSH"/>
         </div>
         {hasPrime &&(
-            <div>
-                <img className='' src="https://links.papareact.com/fdw" alt=""/>
-                <p>FREE Next-day Delivery</p>
+            <div className='flex items-center space-x-2 -mt-5'>
+                <img className='w-12' src="https://links.papareact.com/fdw" alt=""/>
+                <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
             </div>
         )}
+        <button>Add to Basket</button>
     </div>
     )
 }
